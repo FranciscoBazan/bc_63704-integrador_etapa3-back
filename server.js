@@ -7,6 +7,7 @@ import routerProductos from './routers/productos.router.js'
 import routerUpload from './routers/upload.router.js'
 import conectarMongo from './config/conectarMongo.js'
 import routerCarrito from './routers/carrito.router.js'
+import routerClientes from './routers/clientes.router.js'
 
 // ! CONFIGURACIONES
 const app = express()
@@ -28,6 +29,7 @@ app.use(cors(corsConfig))
 app.use('/api/productos', routerProductos)
 app.use('/api/upload', routerUpload)
 app.use('/api/carrito', routerCarrito)
+app.use('/api/clientes', routerClientes)
 
 app.all('*', (req, res) => {
     res.status(404).send(`La ruta ${req.url} utilizando el ${req.method} no está disponible!`)
