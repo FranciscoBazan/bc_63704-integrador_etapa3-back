@@ -1,10 +1,11 @@
 import express from 'express'
 const routerCarrito = express.Router()
 import controller from '../controllers/carrito.controller.js'
-import validator from '../validators/carritos.validator.js'
+import middlewares from '../middlewares/carritos.middleware.js'
+
 
 // ! Hacer un post (Create) para guardar el carrito en Mongo DB
 // * http://localhost:8080/api/carrito/
-routerCarrito.post('/', validator.carritoPostValidator, controller.guardarCarrito)
+routerCarrito.post('/', middlewares.carritosMiddleware, controller.guardarCarrito)
 
 export default routerCarrito

@@ -1,11 +1,11 @@
-import { validationResult } from "express-validator"
 
-const carritoMiddleware = (req, res, next) => {
-    const errores = validationResult(req)
-    if ( !errores.isEmpty() ) {
-        return res.status(400).json({ errores: errores.array() })
+const carritosMiddleware = (req, res, next) => {
+    if (!req.body || !Array.isArray(req.body) || req.body.length === 0) {
+      return res.status(400).json({ error: 'El cuerpo de la solicitud debe ser un array no vacío.' })
     }
     next()
-}
+  }
 
-export default carritoMiddleware
+export default {
+    carritosMiddleware
+}
