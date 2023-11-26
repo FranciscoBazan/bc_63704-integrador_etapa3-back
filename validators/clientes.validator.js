@@ -15,7 +15,7 @@ const clientesValidator = [
     check('telefono')
         .not().isEmpty().withMessage('El teléfono es necesario')
         .isNumeric().withMessage('El teléfono debe ser un número')
-        .isLength( { max: 10 } ).withMessage('El teléfono no puede tener más de 10 números')
+        .isLength( { min: 10 } ).withMessage('El teléfono debe tener al menos 10 números')
         .trim(),
     check('comentarios')
         .optional()
