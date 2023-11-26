@@ -2,9 +2,15 @@ import mongoose from "mongoose"
 
 // ! CREAMOS EL ESQUEMA
 
-const carritoSchema = mongoose.Schema({
+const carritoSchema = mongoose.Schema(
+    {
     carrito: Array
-})
+    },
+    {
+        versionKey: false,
+        timestamps: true
+    }
+)
 
 // ! A partir del SCHEMA creo el MODELO
 const CarritoModel = mongoose.model('carritos', carritoSchema)

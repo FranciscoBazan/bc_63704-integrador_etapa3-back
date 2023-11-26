@@ -43,6 +43,7 @@ const productoCreateValidator = [
         .trim(),
     check('foto')
         .notEmpty()
+        .isURL()
         .trim()
         .withMessage('La foto es requerida'),
     check('envio')
